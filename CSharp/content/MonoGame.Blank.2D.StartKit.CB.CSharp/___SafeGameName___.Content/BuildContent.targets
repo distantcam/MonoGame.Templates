@@ -1,5 +1,5 @@
 <Project>
-  <Target Name="BuildContent" BeforeTargets="BeforeCompile">
+  <Target Name="BuildContent" BeforeTargets="BeforeCompile" Condition="'$(DesignTimeBuild)' != 'true'">
     <MSBuild Projects="$(MSBuildThisFileDirectory)___SafeGameName___.Content.csproj" Targets="Build" RemoveProperties="Configuration;TargetFramework;RuntimeIdentifier;RuntimeIdentifiers">
       <Output TaskParameter="TargetOutputs" ItemName="_ContentBuilderAssembly" />
     </MSBuild>
